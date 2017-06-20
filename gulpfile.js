@@ -145,7 +145,8 @@ gulp.task('js:dev', function () {
 
 //生产模式下的服务器
 gulp.task('server:product', function () {
-    runSequence(['imagemin', 'publish:html', 'publish:css', 'publish:js'], ['rev']);
+    // runSequence(['imagemin', 'publish:html', 'publish:css', 'publish:js'], ['rev']);
+    runSequence(['publish:html', 'publish:css', 'publish:js'], ['rev']);
     browserSync.init({
         server: {
             baseDir: build.basePath,
@@ -155,6 +156,7 @@ gulp.task('server:product', function () {
     });
 });
 
+//该组件
 //压缩图片//只限jpg,png
 gulp.task('imagesmin', function () {
     //取出开发环境所有图片文件
